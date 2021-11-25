@@ -1,10 +1,7 @@
 import axios from 'axios';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
-
-// Discogs issues a temporary "personal access token" which should be kept private
-// "token" is a constant stored in "keys.js", which is not included in git repository.
-import { token } from './keys.js';
+import { token } from './keys.js'; // Discogs issues a temporary "personal access token" which should be kept private. "Keys.js" is not included in git repository.
 
 export default function App() {
 
@@ -18,7 +15,8 @@ export default function App() {
     axios
       .get(fetchUrl, {
         headers: {
-          authorization: `Discogs token=${token}`
+          authorization: `Discogs token=${token}`,
+          'User-Agent': 'bcit-kz lab3'
         },
       })
       .then((response) => {
@@ -29,6 +27,10 @@ export default function App() {
         setData(error);
       });
   }
+
+  useEffect(() => {
+    fetchImages();
+  }, []); // blank array in the "dependencies" field means it only runs once, not at every render
 
   return (
     <div className="App">
