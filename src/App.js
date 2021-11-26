@@ -7,7 +7,7 @@ import { token } from './keys.js'; // Discogs issues a temporary "personal acces
 
 export default function App() {
 
-  const [activeIndex, setActiveIndex] = useState(0);
+  const [albumResource, setAlbumResource] = useState("https://api.discogs.com/releases/249504"); // default, for when one isn't loaded
 
   const [data, setData] = useState([""]);
   const [query, setQuery] = useState("sgt pepper")
@@ -24,6 +24,7 @@ export default function App() {
         })
         .then((response) => {
           setData(response.data.results);
+          setAlbumResource(response.data.results[0].resource_url);
         })
         .catch((error) => {
           console.log(error);
@@ -34,14 +35,8 @@ export default function App() {
 
   return (
     <div className="App">
-      {
-        data[activeIndex].resource_url
-        ?
-        <AlbumDetails resource={data[activeIndex].resource_url} />
-        :
-        ""
-      }
-      <AlbumList data={data} setActiveIndex={setActiveIndex} query={query} setQuery={setQuery} />
+      <AlbumDetails resource={albumResource} />
+      <AlbumList data={data} setAlbumResource={setAlbumResource} query={query} setQuery={setQuery} />
     </div>
   );
 }
