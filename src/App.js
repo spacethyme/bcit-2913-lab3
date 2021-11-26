@@ -11,12 +11,6 @@ export default function App() {
   const [query, setQuery] = useState("sgt pepper")
   const fetchUrl = `https://api.discogs.com/database/search?q=${query}&type=release&per_page=5&page=1`;
 
-  const searchImages = (e) => {
-    if (e.key === "Enter") {
-      setQuery(e.target.value);
-    }
-  };
-
   useEffect(() => {
     const fetchAlbum = () => {
       axios
@@ -38,10 +32,9 @@ export default function App() {
 
   return (
     <div className="App">
-      <input onKeyUp={searchImages} type="text" placeholder={query} />
-      <hr />
       <p>Active Index = {activeIndex}</p>
-      <AlbumList data={data} setActiveIndex={setActiveIndex} />
+      <hr />
+      <AlbumList data={data} setActiveIndex={setActiveIndex} query={query} setQuery={setQuery} />
     </div>
   );
 }
