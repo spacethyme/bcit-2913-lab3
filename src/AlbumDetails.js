@@ -17,8 +17,7 @@ export default function AlbumDetails({ resource, token }) {
               })
               .then((response) => {
                 setData(response.data);
-                console.log(response.data.tracklist); // cover works, on to tracklist
-                console.log(Object.keys(response.data.tracklist));
+                console.log(response.data.year);
               })
               .catch((error) => {
                 console.log(error);
@@ -29,8 +28,15 @@ export default function AlbumDetails({ resource, token }) {
 
     return (
         <section className="album-details">
-            <img src={ data.images ? data.images[0].resource_url : fallbackImage } alt="album cover" />
-            <div className="tracklist">
+            <div className="album-details-info">
+                <img src={ data.images ? data.images[0].resource_url : fallbackImage } alt="album cover" />
+                <p><em>
+                    {data.year}
+                    {data.country ? ` / ${data.country}` : ""}
+                    {data.formats[0].name ? ` / ${data.formats[0].name}` : ""}
+                </em></p>
+            </div>
+            <div className="album-details-tracklist">
                 <ol>
                     {
                         data.tracklist ?

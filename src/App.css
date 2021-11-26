@@ -14,19 +14,24 @@ h2, p, li, label {
   display: flex;
 }
 
-.album-details>img {
+.album-details-info img {
   max-height: 300px;
 }
 
-.tracklist {
+.album-details-info p {
+  text-align: center;
+  color: silver;
+}
+
+.album-details-tracklist {
   padding-left: 0.75em;
 }
 
-.tracklist ol {
+.album-details-tracklist ol {
   margin: 0;
 }
 
-.tracklist li {
+.album-details-tracklist li {
   margin-bottom: 0.2em;
 }
 
