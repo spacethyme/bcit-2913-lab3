@@ -17,7 +17,7 @@ export default function AlbumDetails({ resource, token }) {
               })
               .then((response) => {
                 setData(response.data);
-                console.log(response.data.images[0].resource_url); //this is giving a warning when the page first loads, but it's only for testing, so warning will go away when I delete it eventually
+                console.log(response.data.tracklist); // cover works, on to tracklist
               })
               .catch((error) => {
                 console.log(error);
@@ -31,8 +31,11 @@ export default function AlbumDetails({ resource, token }) {
             <img src={ data.images ? data.images[0].resource_url : fallbackImage } alt="album cover" />
             <div className="tracklist">
                 <ol>
-                    <li>track 1</li>
-                    <li>track 2</li>
+                    {
+                        data.tracklist ?
+                        console.log(data.tracklist) :
+                        console.log("no tracklist")
+                    }
                 </ol>
             </div>
         </section>
