@@ -19,31 +19,34 @@ export default function App() {
   const [query, setQuery] = useState("sgt pepper")
   const fetchUrl = `https://api.discogs.com/database/search?q=${query}&type=release&per_page=5&page=1`;
 
-  const fetchAlbum = () => {
-    axios
-      .get(fetchUrl, {
-        headers: {
-          authorization: `Discogs token=${token}`,
-          'User-Agent': 'bcit-kz lab3'
-        },
-      })
-      .then((response) => {
-        setData(response.data.results);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  const searchImages = (e) => {
+    if (e.key === "Enter") {
+      setQuery(e.target.value);
+    }
+  };
 
   useEffect(() => {
+    const fetchAlbum = () => {
+      axios
+        .get(fetchUrl, {
+          headers: {
+            authorization: `Discogs token=${token}`,
+            'User-Agent': 'bcit-kz lab3'
+          },
+        })
+        .then((response) => {
+          setData(response.data.results);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
     fetchAlbum();
-  }, []); // blank array in the "dependencies" field means it only runs once, not at every render
+  }, [fetchUrl]);
 
   return (
     <div className="App">
-      <p>Current query term = {query}</p>
-      <input type="text" value={query} onChange={(e) => setQuery(e.target.value)} />
-      <button onClick={fetchAlbum}>Search</button>
+      <input onKeyUp={searchImages} type="text" placeholder={query} />
       <hr />
       <div className="album-list">
         {data.map((data, key) => (
