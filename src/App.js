@@ -3,19 +3,25 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import { token } from './keys.js'; // Discogs issues a temporary "personal access token" which should be kept private. "Keys.js" is not included in git repository.
 
-function ShowAlbumSummary({ album }) {
+function AlbumList( {data, setActiveIndex} ) {
   return (
-    <>
-      <img src={album.thumb} alt="album cover" />
-      <p>{album.title} ({album.year} / {album.country})</p>
-      <p>{album.resource_url}</p>
-    </>
+    <section className="album-list">
+      <h2>Results:</h2>
+      {data.map((a, key) => (
+        <button onClick={() => {setActiveIndex(key)}} key={key}>
+          <img src={a.thumb} alt="album cover" />
+          <p>{a.title} ({a.year} / {a.country})</p>
+          <p>{a.resource_url}</p>
+        </button>
+      ))}
+    </section>
   );
 }
 
 export default function App() {
 
   const [data, setData] = useState([]);
+  const [activeIndex, setActiveIndex] = useState(0);
   const [query, setQuery] = useState("sgt pepper")
   const fetchUrl = `https://api.discogs.com/database/search?q=${query}&type=release&per_page=5&page=1`;
 
@@ -48,11 +54,8 @@ export default function App() {
     <div className="App">
       <input onKeyUp={searchImages} type="text" placeholder={query} />
       <hr />
-      <div className="album-list">
-        {data.map((data, key) => (
-          <ShowAlbumSummary album={data} key={key} />
-        ))}
-      </div>
+      <p>Active Index = {activeIndex}</p>
+      <AlbumList data={data} setActiveIndex={setActiveIndex} />
     </div>
   );
 }
