@@ -7,7 +7,7 @@ export default function AlbumList( {setAlbumResource, token} ) {
   const [query, setQuery] = useState("sgt pepper") // default is a search for sgt pepper
   const fetchUrl = `https://api.discogs.com/database/search?q=${query}&type=release&per_page=5&page=1`; // limiting to 5 top results
 
-  const searchImages = (e) => { // nice code stolen from week3 in class demo
+  const searchImages = (e) => { // nice code stolen from week3 in-class demo
     if (e.key === "Enter") {
       setQuery(e.target.value);
     }
