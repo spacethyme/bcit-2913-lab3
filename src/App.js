@@ -5,7 +5,7 @@ import AlbumList from './AlbumList';
 import { token } from './keys.js'; // Discogs issues a temporary "personal access token" which should be kept private. "Keys.js" is not included in git repository.
 
 export default function App() {
-  const [albumResource, setAlbumResource] = useState("https://api.discogs.com/releases/249504"); // default, for when one isn't loaded
+  const [albumResource, setAlbumResource] = useState("");
 
   return (
     <div className="App">
