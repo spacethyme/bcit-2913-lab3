@@ -9,6 +9,27 @@ h2, p, li, label {
 
 /* Album Details = upper section */
 
+.album-details {
+  padding: 1em;
+  display: flex;
+}
+
+.album-details>img {
+  max-height: 300px;
+}
+
+.tracklist {
+  padding-left: 0.75em;
+}
+
+.tracklist ol {
+  margin: 0;
+}
+
+.tracklist li {
+  margin-bottom: 0.2em;
+}
+
 /* Album List = lower section */
 
 .album-list {
