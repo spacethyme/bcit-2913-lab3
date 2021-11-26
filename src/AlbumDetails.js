@@ -18,6 +18,7 @@ export default function AlbumDetails({ resource, token }) {
               .then((response) => {
                 setData(response.data);
                 console.log(response.data.tracklist); // cover works, on to tracklist
+                console.log(Object.keys(response.data.tracklist));
               })
               .catch((error) => {
                 console.log(error);
@@ -33,8 +34,11 @@ export default function AlbumDetails({ resource, token }) {
                 <ol>
                     {
                         data.tracklist ?
-                        console.log(data.tracklist) :
-                        console.log("no tracklist")
+                        Object.keys(data.tracklist)
+                            .map((key) => (
+                                <li key={key} value={data.tracklist[key].position}>{data.tracklist[key].title}</li>
+                            ))
+                        : ""
                     }
                 </ol>
             </div>
