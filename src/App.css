@@ -3,7 +3,7 @@
   background-color: black;
 }
 
-h2, p, li {
+h2, p, li, label {
   color: white;
 }
 
@@ -17,9 +17,12 @@ h2, p, li {
   max-width: 800px;
 }
 
-.album-list h2 {
-  padding-left: 0.5em;
-  margin-top: 0;
+.album-list label {
+  padding: 0.5em;
+}
+
+.album-list input {
+  margin: 1em;
 }
 
 .album-list button {
@@ -36,12 +39,13 @@ h2, p, li {
 .album-list button:active {background-color: #213;}
 
 .album-list button img {
-  max-height: 50px;
-  border-radius: 50%;
-  border: 2px solid darkblue
+  max-height: 75px;
+  border-radius: 20%;
+  border: 2px solid darkslategrey;
 }
 
 .album-list button p {
   font-weight: 600;
+  font-size: 1.2em;
   padding-left: 1em;
 }
