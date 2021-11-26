@@ -17,7 +17,6 @@ export default function AlbumDetails({ resource, token }) {
               })
               .then((response) => {
                 setData(response.data);
-                console.log(response.data.year);
               })
               .catch((error) => {
                 console.log(error);
@@ -30,11 +29,12 @@ export default function AlbumDetails({ resource, token }) {
         <section className="album-details">
             <div className="album-details-info">
                 <img src={ data.images ? data.images[0].resource_url : fallbackImage } alt="album cover" />
-                <p><em>
+                <p>
                     {data.year}
                     {data.country ? ` / ${data.country}` : ""}
-                    {data.formats[0].name ? ` / ${data.formats[0].name}` : ""}
-                </em></p>
+                    {data.formats ? ` / ${data.formats[0].name}` : ""}
+                </p>
+                <p><a href={data.uri}>(more information)</a></p>
             </div>
             <div className="album-details-tracklist">
                 <ol>

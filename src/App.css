@@ -19,8 +19,10 @@ h2, p, li, label {
 }
 
 .album-details-info p {
+  margin: 0;
   text-align: center;
   color: silver;
+  font-style: italic;
 }
 
 .album-details-tracklist {
