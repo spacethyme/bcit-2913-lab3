@@ -1,3 +1,47 @@
 .App {
-  text-align: center;
+  padding: 1em;
+  background-color: black;
+}
+
+h2, p, li {
+  color: white;
+}
+
+/* Album Details = upper section */
+
+/* Album List = lower section */
+
+.album-list {
+  padding: 1em;
+  margin-top: 1em;
+  max-width: 800px;
+}
+
+.album-list h2 {
+  padding-left: 0.5em;
+  margin-top: 0;
+}
+
+.album-list button {
+  width: 100%;
+  padding: .4em;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 1em;
+  display: flex;
+  cursor: pointer;
+}
+
+.album-list button:hover {background-color: #222;}
+.album-list button:active {background-color: #213;}
+
+.album-list button img {
+  max-height: 50px;
+  border-radius: 50%;
+  border: 2px solid darkblue
+}
+
+.album-list button p {
+  font-weight: 600;
+  padding-left: 1em;
 }
