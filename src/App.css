@@ -3,7 +3,7 @@
   background-color: black;
 }
 
-h2, p, li, label {
+h2, p, td, label {
   color: white;
 }
 
@@ -29,12 +29,8 @@ h2, p, li, label {
   padding-left: 0.75em;
 }
 
-.album-details-tracklist ol {
-  margin: 0;
-}
-
-.album-details-tracklist li {
-  margin-bottom: 0.2em;
+.album-details-tracklist td {
+  padding-right: 0.5em;
 }
 
 /* Album List = lower section */

@@ -37,16 +37,22 @@ export default function AlbumDetails({ resource, token }) {
                 <p><a href={data.uri}>(more information)</a></p>
             </div>
             <div className="album-details-tracklist">
-                <ol>
-                    {
-                        data.tracklist ?
+                <table><tbody>
+                    {data.tracklist ?
                         Object.keys(data.tracklist)
                             .map((key) => (
-                                <li key={key} value={data.tracklist[key].position}>{data.tracklist[key].title}</li>
-                            ))
-                        : ""
+                                <tr key={key}>
+                                    <td>
+                                        {data.tracklist[key].position ? data.tracklist[key].position : ""}
+                                    </td>
+                                    <td>
+                                        {data.tracklist[key].title ? data.tracklist[key].title : ""}
+                                    </td>
+                                </tr>
+                            ))                            
+                        : <tr><td>(no data)</td></tr>
                     }
-                </ol>
+                </tbody></table>
             </div>
         </section>
     )
