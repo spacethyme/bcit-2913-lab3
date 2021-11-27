@@ -1,3 +1,76 @@
 .App {
+  padding: 1em;
+  background-color: black;
+}
+
+h2, p, td, label {
+  color: white;
+}
+
+/* Album Details = upper section */
+
+.album-details {
+  padding: 1em;
+  display: flex;
+}
+
+.album-details-info img {
+  max-height: 300px;
+}
+
+.album-details-info p {
+  margin: 0;
   text-align: center;
+  color: silver;
+  font-style: italic;
+}
+
+.album-details-tracklist {
+  padding-left: 0.75em;
+}
+
+.album-details-tracklist td {
+  padding-right: 0.5em;
+}
+
+/* Album List = lower section */
+
+.album-list {
+  padding: 1em;
+  margin-top: 1em;
+  max-width: 800px;
+}
+
+.album-list label {
+  padding: 0.5em;
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.album-list input {
+  margin: 1em;
+}
+
+.album-list button {
+  width: 100%;
+  padding: .4em;
+  background-color: black;
+  border: 1px solid black;
+  border-radius: 1em;
+  display: flex;
+  cursor: pointer;
+}
+
+.album-list button:hover {background-color: #222;}
+.album-list button:active {background-color: #213;}
+
+.album-list button img {
+  max-height: 75px;
+  border-radius: 20%;
+  border: 2px solid darkslategrey;
+}
+
+.album-list button p {
+  font-size: 1.4em;
+  padding-left: 1em;
 }
