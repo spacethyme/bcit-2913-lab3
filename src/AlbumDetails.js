@@ -30,7 +30,7 @@ export default function AlbumDetails({ resource, token }) {
             <div className="album-details-info">
                 <img src={ data.images ? data.images[0].resource_url : fallbackImage } alt="album cover" />
                 <p>
-                    {data.year}
+                    {data.year ? `${data.year}` : "unknown"}
                     {data.country ? ` / ${data.country}` : ""}
                     {data.formats ? ` / ${data.formats[0].name}` : ""}
                 </p>

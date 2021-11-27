@@ -40,7 +40,13 @@ export default function AlbumList( {setAlbumResource, token} ) {
       {data.map((a, key) => (
         <button onClick={() => {setAlbumResource(a.resource_url)}} key={key}>
           <img src={a.thumb} alt="album cover" />
-          <p>{a.title} ({a.year} / {a.country})</p>
+          <p>
+            {a.title} (
+              {a.year ? a.year : "unknown"}
+              {a.country ? ` / ${a.country}` : ""}
+              {a.formats[0].name ? ` / ${a.formats[0].name}` : ""}
+            )
+          </p>
         </button>
       ))}
     </section>
