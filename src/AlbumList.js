@@ -44,7 +44,7 @@ export default function AlbumList( {setAlbumResource, token} ) {
             {a.title} (
               {a.year ? a.year : "unknown"}
               {a.country ? ` / ${a.country}` : ""}
-              {a.formats[0].name ? ` / ${a.formats[0].name}` : ""}
+              {a.formats ? ` / ${a.formats[0].name}` : ""}
             )
           </p>
         </button>
